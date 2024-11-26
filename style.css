@@ -21,8 +21,14 @@ h1 {
   padding: 10px 10px;
 
   display: flex;
+  flex-direction: column;
 }
-.container div {
+
+.row {
+  display: flex;
+}
+
+.square {
   /*height: calc((100vw - 69px)/16); */
   aspect-ratio: 1/1;
   flex: auto;
