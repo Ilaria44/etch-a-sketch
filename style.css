@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-}
+} 
 
 html, body {
   margin: 0;
@@ -17,14 +17,14 @@ h1 {
 }
 
 .container {
-  height: 80vh;
   margin: 30px 15px;
   padding: 10px 10px;
 
   display: flex;
 }
 .container div {
-  width: 100%;
-  height: calc(6.25vw - 4.25px); /* 100vh/16 - 68px/16 (padding, margin and borders) */
+  /*height: calc((100vw - 69px)/16); */
+  aspect-ratio: 1/1;
+  flex: auto;
 }
 
