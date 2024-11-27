@@ -2,7 +2,6 @@
 
 let gridContainer = document.querySelector(".container");
 
-console.log(gridContainer)
 
 for (i = 0; i < 16; i++) {
   let rowDiv = document.createElement("div");
@@ -16,6 +15,15 @@ for (i = 0; i < 16; i++) {
   }
 
   gridContainer.appendChild(rowDiv);
-  console.log(i);
 
 }
+
+
+//divs change color when hovered
+
+gridContainer.addEventListener("mouseover", (e) => {
+  if(e.target.classList.contains("square")) {
+    e.target.classList.add("active");
+  }
+})
+
