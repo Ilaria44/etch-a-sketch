@@ -10,9 +10,14 @@ html, body {
 
 h1 {
   height: 40px;
-  margin-top:20px;
-  margin-bottom: 0;
+  line-height: 40px;
+  margin: 0;
+  padding: 0 10px;
   text-align: center;
+  color: black;
+  font-size: 24px;
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  text-wrap: nowrap;
 }
 
 .container {
@@ -53,3 +58,22 @@ h1 {
   background-color: cornflowerblue;
 }
 
+header {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  gap: 5px;
+  width: calc(100vh - 92px - 20px);
+}
+
+header button {
+  background-color: rgb(232, 232, 232);
+  max-height: 35px;
+  min-height: 22px;
+  width: 60px;
+  border: 1.5px solid black;
+  border-radius: 30px;
+  font-size: 11px;
+}
