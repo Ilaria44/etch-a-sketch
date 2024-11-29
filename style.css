@@ -77,3 +77,8 @@ header button {
   border-radius: 30px;
   font-size: 11px;
 }
+
+.btn-clicked {
+  background-color: rgb(192, 192, 192);
+  font-weight: bold;
+}

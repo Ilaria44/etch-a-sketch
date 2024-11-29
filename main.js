@@ -25,5 +25,26 @@ gridContainer.addEventListener("mouseover", (e) => {
   if(e.target.classList.contains("square")) {
     e.target.classList.add("active");
   }
-})
+});
+
+
+//reset button
+
+let resetBtn = document.querySelector("#reset");
+
+resetBtn.addEventListener("click", (e) => {
+  resetBtn.classList.add("btn-clicked");
+  setTimeout(() => resetBtn.classList.remove("btn-clicked"), 200);
+});
+
+
+
+//new grid button
+
+let newGridBtn = document.querySelector("#new-grid");
+
+newGridBtn.addEventListener("click", (e) => {
+  newGridBtn.classList.add("btn-clicked");
+  setTimeout(() => newGridBtn.classList.remove("btn-clicked"), 200);
+});
 
