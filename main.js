@@ -49,8 +49,39 @@ resetBtn.addEventListener("click", (e) => {
 
 let newGridBtn = document.querySelector("#new-grid");
 
+function getNumber () {
+  let num = prompt("Enter the number of squares per side (between 1 and 100):");
+
+  /* if (num == (/^([1-9][0-9]?|100)$/)) {
+    console.log(num);
+  } */
+
+}
+
+function createNewGrid (num) {
+  gridContainer.innerHTML = "";
+
+  for (i = 0; i < num; i++) {
+    let rowDiv = document.createElement("div");
+    rowDiv.classList.add("row");
+    
+  
+    for (j = 0; j < num; j++) {
+      let newDiv = document.createElement("div");
+      newDiv.classList.add("square");
+      rowDiv.appendChild(newDiv);
+    }
+  
+    gridContainer.appendChild(rowDiv);
+  
+  }
+
+}
+
 newGridBtn.addEventListener("click", (e) => {
   newGridBtn.classList.add("btn-clicked");
   setTimeout(() => newGridBtn.classList.remove("btn-clicked"), 200);
+
+  createNewGrid(prompt("Enter the number of squares per side (between 1 and 100):"));
 });
 
