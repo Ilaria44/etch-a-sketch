@@ -28,18 +28,24 @@ gridContainer.addEventListener("mouseover", (e) => {
 });
 
 
-//reset button
+//reset button - resets current grid by removing active class from all squares
 
 let resetBtn = document.querySelector("#reset");
 
 resetBtn.addEventListener("click", (e) => {
   resetBtn.classList.add("btn-clicked");
   setTimeout(() => resetBtn.classList.remove("btn-clicked"), 200);
+
+  for (const row of gridContainer.children) {
+    for (const square of row.children) {
+      square.classList.remove("active");
+    }
+  }
 });
 
 
 
-//new grid button
+//new grid button - asks for a number between 1 and 100, removes grid and creates a new one of given dimensions
 
 let newGridBtn = document.querySelector("#new-grid");
 
