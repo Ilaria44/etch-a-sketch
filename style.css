@@ -6,6 +6,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-width: fit-content;
+  min-height: 360px;
 }
 
 h1 {
@@ -25,6 +26,7 @@ h1 {
   margin-right: 130px;
   padding: 5px;
   max-height: calc(100vh - 70px); /* height minus header */
+  min-height: 300px;
 
   display: flex;
   flex-direction: column;
@@ -34,6 +36,7 @@ h1 {
 .row {
   display: flex;
   width: calc(100vh - 70px - 20px); /*same as height: height minus header minus margin/padding */
+  min-width: 300px;
   float: none;
   border-left: 0.5px solid gray;
   border-right: 0.5px solid gray;
@@ -66,7 +69,8 @@ header {
   align-items: center;
   margin-top: 20px;
   gap: 5px;
-  width: calc(100vh - 92px - 20px);
+  width: calc(100vh - 70px - 20px); /*same as height: height minus header minus margin/padding */
+  min-width: 300px;
 }
 
 button {
