@@ -1,6 +1,6 @@
 //create a 16x16 grid of divs - loop through creating one div 16 times for a single line, then outer loop to repeat that 16 times for the rows
 
-let gridContainer = document.querySelector(".container");
+let gridContainer = document.querySelector(".grid");
 
 
 for (i = 0; i < 16; i++) {

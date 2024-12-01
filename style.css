@@ -5,7 +5,7 @@
 html, body {
   margin: 0;
   padding: 0;
-
+  min-width: fit-content;
 }
 
 h1 {
@@ -20,10 +20,11 @@ h1 {
   text-wrap: nowrap;
 }
 
-.container {
-  margin: 15px;
+.grid {
+  margin-bottom: 10px;
+  margin-right: 130px;
   padding: 5px;
-  max-height: calc(100vh - 92px);
+  max-height: calc(100vh - 70px); /* height minus header */
 
   display: flex;
   flex-direction: column;
@@ -32,34 +33,34 @@ h1 {
 
 .row {
   display: flex;
-  width: calc(100vh - 92px - 20px);
+  width: calc(100vh - 70px - 20px); /*same as height: height minus header minus margin/padding */
   float: none;
-  border-left: 0.5px solid black;
-  border-right: 0.5px solid black;
+  border-left: 0.5px solid gray;
+  border-right: 0.5px solid gray;
 }
 
 .row:first-of-type {
-  border-top: 0.5px solid black;
+  border-top: 0.5px solid gray;
 }
 
 .row:last-of-type {
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid gray;
 }
 
 .square {
   /*height: calc((100vw - 69px)/16); */
   aspect-ratio: 1/1;
   flex: auto;
-  border: 0.5px solid black;
+  border: 0.5px solid lightgray;
   
 }
 
 .active {
-  background-color: cornflowerblue;
+  background-color: rgb(80, 80, 80);
 }
 
 header {
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -68,17 +69,39 @@ header {
   width: calc(100vh - 92px - 20px);
 }
 
-header button {
+button {
   background-color: rgb(232, 232, 232);
   max-height: 35px;
   min-height: 22px;
-  width: 60px;
   border: 1.5px solid black;
   border-radius: 30px;
   font-size: 11px;
 }
 
+header button {
+  width: 60px;
+}
+
+.controls button {
+  width: 95px;
+}
+
 .btn-clicked {
   background-color: rgb(192, 192, 192);
   font-weight: bold;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100px;
+  margin: 15px;
 }
