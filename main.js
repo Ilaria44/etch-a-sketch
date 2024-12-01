@@ -2,6 +2,11 @@
 
 let gridContainer = document.querySelector(".grid");
 
+let redValue = 80;
+let greenValue = 80;
+let blueValue = 80;
+let opacity = 1;
+
 
 for (i = 0; i < 16; i++) {
   let rowDiv = document.createElement("div");
@@ -19,11 +24,22 @@ for (i = 0; i < 16; i++) {
 }
 
 
-//divs change color when hovered
+//divs change color when hovered - if rainbow is clicked color is randomized
 
 gridContainer.addEventListener("mouseover", (e) => {
   if(e.target.classList.contains("square")) {
-    e.target.classList.add("active");
+
+    if (rainbowBtn.classList.contains("btn-clicked")) {
+      redValue = Math.floor(Math.random() * 256);
+      greenValue = Math.floor(Math.random() * 256);
+      blueValue = Math.floor(Math.random() * 256);
+    } else {
+      redValue = 80;
+      greenValue = 80;
+      blueValue = 80;
+    }
+
+    e.target.style.backgroundColor = "rgba(" + redValue + ", " + greenValue + ", " + blueValue + ", " + opacity + ")";
   }
 });
 
@@ -32,13 +48,13 @@ gridContainer.addEventListener("mouseover", (e) => {
 
 let resetBtn = document.querySelector("#reset");
 
-resetBtn.addEventListener("click", (e) => {
+resetBtn.addEventListener("click", () => {
   resetBtn.classList.add("btn-clicked");
   setTimeout(() => resetBtn.classList.remove("btn-clicked"), 200);
 
   for (const row of gridContainer.children) {
     for (const square of row.children) {
-      square.classList.remove("active");
+      square.style.backgroundColor = "white";
     }
   }
 });
@@ -81,10 +97,18 @@ function createNewGrid (num) {
 
 }
 
-newGridBtn.addEventListener("click", (e) => {
+newGridBtn.addEventListener("click", () => {
   newGridBtn.classList.add("btn-clicked");
   setTimeout(() => newGridBtn.classList.remove("btn-clicked"), 200);
 
   createNewGrid(getNumber());
 });
 
+
+//rainbow button - random color background
+
+let rainbowBtn = document.querySelector("#rainbow");
+
+rainbowBtn.addEventListener("click", () => {
+  rainbowBtn.classList.toggle("btn-clicked");
+});
