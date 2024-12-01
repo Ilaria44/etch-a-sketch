@@ -2,10 +2,9 @@
 
 let gridContainer = document.querySelector(".grid");
 
-let redValue = 80;
-let greenValue = 80;
-let blueValue = 80;
-let opacity = 1;
+let redValue;
+let greenValue;
+let blueValue;
 
 
 for (i = 0; i < 16; i++) {
@@ -16,6 +15,7 @@ for (i = 0; i < 16; i++) {
   for (j = 0; j < 16; j++) {
     let newDiv = document.createElement("div");
     newDiv.classList.add("square");
+    newDiv.setAttribute("data-background-opacity", 0);
     rowDiv.appendChild(newDiv);
   }
 
@@ -38,8 +38,18 @@ gridContainer.addEventListener("mouseover", (e) => {
       greenValue = 80;
       blueValue = 80;
     }
+  
 
-    e.target.style.backgroundColor = "rgba(" + redValue + ", " + greenValue + ", " + blueValue + ", " + opacity + ")";
+    if (opacityBtn.classList.contains("btn-clicked")) {
+      e.target.setAttribute("data-background-opacity", (Number(e.target.getAttribute("data-background-opacity")) + 0.1));
+
+    } else {
+      e.target.setAttribute("data-background-opacity", 1);
+    }
+
+    console.log(e.target.getAttribute("data-background-opacity"));
+
+    e.target.style.backgroundColor = "rgba(" + redValue + ", " + greenValue + ", " + blueValue + ", " + e.target.getAttribute("data-background-opacity") + ")";
   }
 });
 
@@ -111,4 +121,13 @@ let rainbowBtn = document.querySelector("#rainbow");
 
 rainbowBtn.addEventListener("click", () => {
   rainbowBtn.classList.toggle("btn-clicked");
+});
+
+
+//opacity button - increment opacity at each passage
+
+let opacityBtn = document.querySelector("#opacity");
+
+opacityBtn.addEventListener("click", () => {
+  opacityBtn.classList.toggle("btn-clicked");
 });
