@@ -52,10 +52,13 @@ let newGridBtn = document.querySelector("#new-grid");
 function getNumber () {
   let num = prompt("Enter the number of squares per side (between 1 and 100):");
 
-  /* if (num == (/^([1-9][0-9]?|100)$/)) {
-    console.log(num);
-  } */
+  let isCorrect = /^([1-9][0-9]?|100)$/;
 
+  while (isCorrect.test(num) === false) {
+    num = prompt("Enter the number of squares per side (between 1 and 100):");
+  }
+
+  return num;
 }
 
 function createNewGrid (num) {
@@ -82,6 +85,6 @@ newGridBtn.addEventListener("click", (e) => {
   newGridBtn.classList.add("btn-clicked");
   setTimeout(() => newGridBtn.classList.remove("btn-clicked"), 200);
 
-  createNewGrid(prompt("Enter the number of squares per side (between 1 and 100):"));
+  createNewGrid(getNumber());
 });
 
